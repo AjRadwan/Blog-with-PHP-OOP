@@ -64,8 +64,5 @@ Class Database{
 		die("Error :(".$this->link->errno.")".$this->link->error);
 	}
   }
-
- 
- 
 }
 
