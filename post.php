@@ -23,19 +23,24 @@ $query = "SELECT * FROM tbl_post where id='$id'";
 <img src="admin/upload/<?php echo $result['image']?>" alt="post image"> 
 	
 <p> <?php echo $fm->textShroten($result['body'] ) ?></p>
-			
-<?php  } } else { header("location:404.php"); } ?>
-			 
-				
+							
 <div class="relatedpost clear">
+<?php 
+ $catid = $result['cat'];
+ $queryreleted = "SELECT * FROM tbl_post where cat='$catid' limit 6";
+ $reletedpost = $db->select($query);
+ if ($reletedpost) {
+	 while($rresult = $reletedpost->fetch_assoc()) {
+?>
 	<h2>Related articles</h2>
-	<a href="#"><img src="images/post1.jpg" alt="post image"/></a>
-	<a href="#"><img src="images/post1.jpg" alt="post image"/></a>
-	<a href="#"><img src="images/post1.jpg" alt="post image"/></a>
-	<a href="#"><img src="images/post1.jpg" alt="post image"/></a>
-	<a href="#"><img src="images/post1.jpg" alt="post image"/></a>
-	<a href="#"><img src="images/post1.jpg" alt="post image"/></a>
+	<a href="post.php?id=<?php echo $rresult['id'] ?>">
+	<img src="admin/upload/<?php echo $rresult['image']?>" alt="post image"/></a>
+
+<?php }  } else {  echo "No Related articles"; } ?>
+ 
 </div>
+<?php  } } else { header("location:404.php"); } ?>
+
 </div>
 
 </div>
