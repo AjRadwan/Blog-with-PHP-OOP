@@ -35,6 +35,12 @@ $fm = new Format();
 </div>
 
  <?php }  ?> <!--end while loop -->
+
+ <!-- pagination -->
+ <?php echo "<span class='pagination'><a href='index.php?page=1'>".'First Page'."</a>" ?>
+ 1, 2, 3
+ <?php echo "<a href='index.php?page=1'>".'Last Page'."</a></span>" ?>
+
 <?php } else { header("location:404.php"); } ?>
 </div>
 
