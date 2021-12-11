@@ -1,15 +1,9 @@
 <?php
  include 'inc/header.php';
  include 'inc/slider.php';
- include 'lib/Database.php';
- include 'config/config.php';
- include 'helpers/Format.php';
 ?>
 
-<?php
-$db = new Database();
-$fm = new Format();
-?>
+
 
 <div class="contentsection contemplete clear">
 <div class="maincontent clear">

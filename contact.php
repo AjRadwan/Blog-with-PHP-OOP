@@ -1,4 +1,4 @@
-<?php include 'inc/header.php' ?>
+<?php include 'inc/header.php'; ?>
 
 
 	<div class="contentsection contemplete clear">
@@ -45,7 +45,7 @@
 		</div>
 		
 		
-<?php include 'inc/sidebar.php' ?>
+<?php include 'inc/sidebar.php'; ?>
 	 
 
-<?php include 'inc/footer.php' ?>
+<?php include 'inc/footer.php'; ?>
