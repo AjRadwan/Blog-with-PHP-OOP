@@ -398,8 +398,23 @@ margin:200px 0;
 .items:hover .shadow{top:0}
 
 
-
-
+/* pagination */
+.pagination{ 
+  display:block;
+font-size: 20px;
+margin-top: 10px;
+padding: 10px;
+text-align: center;
+}
+.pagination a{
+  background-color: #e6af4b;
+  border: 1px solid #814a00;
+  border-radius: 3px;
+  color: #333;
+  margin-left: 2px;
+  padding: 2px 10px;
+  text-decoration: none;
+}
 
 
 
