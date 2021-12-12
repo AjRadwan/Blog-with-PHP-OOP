@@ -20,12 +20,21 @@ $query = "SELECT * FROM tbl_category";
 
 <div class="samesidebar clear">
 	<h2>Latest articles</h2>
-		<div class="popular clear">
-			<h3><a href="#">Post title will be go here..</a></h3>
-			<a href="#"><img src="images/post1.jpg" alt="post image"/></a>
-			<p>Sidebar text will be go here.Sidebar text will be go here.Sidebar text will be go here.Sidebar text will be go here.</p>	
-		</div>
+<?php
+   $query = "SELECT * FROM tbl_post";
+   $post = $db->select($query);
+    if($post){
+    while($result = $post->fetch_assoc()){
+?>
+<div class="popular clear">
+<h3><a href="post.php?id=<?php echo $result['id'] ?>"><?php echo $result['title']; ?></a></h3>
+			 
+	<a href="post.php?id=<?php echo $result['id'] ?>">
+	<img src="admin/upload/<?php echo $result['image']?>" alt="post image"/></a>
+	<p> <?php echo $fm->textShroten($result['body'], 120 ) ?></p>
+	</div>
 		
+<?php  } } else { header("location:404.php"); } ?>
 	
 </div>
 
