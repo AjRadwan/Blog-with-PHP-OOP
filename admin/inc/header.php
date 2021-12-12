@@ -39,7 +39,7 @@
 				</div>
 				<div class="floatleft middle">
 					<h1>Training with live project</h1>
-					<p>www.trainingwithliveproject.com</p>
+					 
 				</div>
                 <div class="floatright">
                     <div class="floatleft">
