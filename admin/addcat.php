@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html>
+<p>
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <title>Add Category | Admin</title>
@@ -77,11 +77,11 @@
         </div>
         <div class="grid_12">
             <ul class="nav main">
-                <li class="ic-dashboard"><a href="index.html"><span>Dashboard</span></a> </li>
+                <li class="ic-dashboard"><a href="index.php"><span>Dashboard</span></a> </li>
                 <li class="ic-form-style"><a href=""><span>User Profile</span></a></li>
-				<li class="ic-typography"><a href="changepassword.html"><span>Change Password</span></a></li>
-				<li class="ic-grid-tables"><a href="inbox.html"><span>Inbox</span></a></li>
-                <li class="ic-charts"><a href="postlist.html"><span>Visit Website</span></a></li>
+				<li class="ic-typography"><a href="changepassword.php"><span>Change Password</span></a></li>
+				<li class="ic-grid-tables"><a href="inbox.php"><span>Inbox</span></a></li>
+                <li class="ic-charts"><a href="postlist.php"><span>Visit Website</span></a></li>
             </ul>
         </div>
         <div class="clear">
@@ -92,9 +92,9 @@
                      <ul class="section menu">
                        <li><a class="menuitem">Site Option</a>
                             <ul class="submenu">
-                                <li><a href="titleslogan.html">Title & Slogan</a></li>
-                                <li><a href="social.html">Social Media</a></li>
-                                <li><a href="copyright.html">Copyright</a></li>
+                                <li><a href="titleslogan.php">Title & Slogan</a></li>
+                                <li><a href="social.php">Social Media</a></li>
+                                <li><a href="copyright.php">Copyright</a></li>
                                 
                             </ul>
                         </li>
@@ -107,14 +107,14 @@
                         </li>
 						<li><a class="menuitem">Category Option</a>
                             <ul class="submenu">
-                                <li><a href="addcat.html">Add Category</a> </li>
-                                <li><a href="catlist.html">Category List</a> </li>
+                                <li><a href="addcat.php">Add Category</a> </li>
+                                <li><a href="catlist.php">Category List</a> </li>
                             </ul>
                         </li>
                         <li><a class="menuitem">Post Option</a>
                             <ul class="submenu">
-                                <li><a href="addpost.html">Add Post</a> </li>
-                                <li><a href="postlist.html">Post List</a> </li>
+                                <li><a href="addpost.php">Add Post</a> </li>
+                                <li><a href="postlist.php">Post List</a> </li>
                             </ul>
                         </li>
                     </ul>
@@ -154,4 +154,4 @@
         </p>
     </div>
 </body>
-</html>
+    </html>
