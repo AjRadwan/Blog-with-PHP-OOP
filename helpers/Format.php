@@ -12,7 +12,6 @@ class Format{
     }
 
     public function validation($data){
-        $data = empty($data);
         $data = trim($data);
         $data = htmlspecialchars($data);
         $data = stripslashes($data);

@@ -26,8 +26,8 @@ $fm = new Format();
 	<section id="content">
  <?php
  if(isset($_POST['login'])){
-	$username = $_POST['username'];
-	$password = $_POST['password'];
+	$username = $fm->validation($_POST['username']);
+	$password = $fm->validation($_POST['password']);
 	$username = mysqli_real_escape_string($db->link, $username);
 	$password = mysqli_real_escape_string($db->link, $password);
 
@@ -35,17 +35,21 @@ $fm = new Format();
 
 	$result = $db->select($query);
 
- 	if ($result->num_rows > 0) {
-		while($row = $result->fetch_assoc()) {
-		 
-		 $_SESSION["username"] = $row["username"];
-		 $_SESSION["userId"] = $row["id"];
-		 header("Location:index.php");
-	  }
-	} else{
-		echo "<span style='color:red; font-size:17px; font-weight:bold'>Username or Password Dosen't match</span>";
+	if($result != false){
+		$value = mysqli_fetch_array($result);
+		$row = mysqli_num_rows($result);
+		if ($row > 0) {
+			Session::set("login", true);
+			Session::set("username", $value['username']);
+			Session::set("userId", $value['id']);
+			header("Location:index.php");
+		}else{
+		echo "<span style='color:red; font-size:17px; font-weight:bold'>NO Result Found</span>";
 	}
- }
+}else{
+echo "<span style='color:red; font-size:17px; font-weight:bold'>Username or Password Dosen't match</span>";
+}
+}
  ?>
  
  <form action="login.php" method="post">
