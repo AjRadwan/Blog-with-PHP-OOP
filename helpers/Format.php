@@ -10,4 +10,12 @@ class Format{
        $text = $text."......";
        return $text;
     }
+
+    public function validation($data){
+        $data = empty($data);
+        $data = trim($data);
+        $data = htmlspecialchars($data);
+        $data = stripslashes($data);
+        return $data;
+    }
 }
