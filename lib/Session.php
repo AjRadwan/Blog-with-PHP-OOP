@@ -9,7 +9,7 @@ class Session{
      }
 
      public static function get($key) {
-         
+
          if (isset($_SESSION["$key"])) {
              return $_SESSION["$key"];
          }else{
@@ -17,7 +17,7 @@ class Session{
          }
      }
 
-     public function checkSession() {
+     public static function checkSession() {
          self::init();
          if (self::get("login") == false) {
             self::destroy();

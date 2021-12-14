@@ -1,8 +1,7 @@
 <?php 
 include '../lib/Session.php';
-Session::init();
+Session:: init();
 ?>
-
 <?php 
  include '../lib/Database.php';
  include '../config/config.php';
@@ -26,6 +25,7 @@ $fm = new Format();
 	<section id="content">
  <?php
  if(isset($_POST['login'])){
+	 //validation is helper function from helpers/Format.php';'
 	$username = $fm->validation($_POST['username']);
 	$password = $fm->validation($_POST['password']);
 	$username = mysqli_real_escape_string($db->link, $username);
@@ -48,7 +48,7 @@ $fm = new Format();
 	}
 }else{
 echo "<span style='color:red; font-size:17px; font-weight:bold'>Username or Password Dosen't match</span>";
-}
+ }
 }
  ?>
  

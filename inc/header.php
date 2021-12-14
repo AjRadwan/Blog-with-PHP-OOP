@@ -1,3 +1,4 @@
+
 <?php 
  include 'lib/Database.php';
  include 'config/config.php';
