@@ -27,7 +27,9 @@
 		<tr class="odd gradeX">
 			<td><?php echo $i?></td>
 			<td><?php echo $data['name']?></td>
-			<td><a href="">Edit</a> || <a href="">Delete</a></td>
+			<td>
+			<a href="editCat.php?catid=<?php echo $data['id']?>">Edit</a> ||
+			<a onclick="return confirm('Do You Want To Delete this?')" href="delCat.php?delcat=<?php echo $data['id']?>">Delete</a></td>
 		</tr>
 	<?php }  }// end while loop  ?>
 </tbody>
