@@ -1,6 +1,15 @@
 <?php 
+ include '../lib/Database.php';
+ include '../config/config.php';
+ include '../helpers/Format.php';
+?>
+<?php 
 include '../lib/Session.php';
 Session:: checkSession();
+?>
+<?php
+$db = new Database();
+$fm = new Format();
 ?>
 
 <!DOCTYPE html>

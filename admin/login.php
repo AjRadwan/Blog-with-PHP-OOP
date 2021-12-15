@@ -1,12 +1,13 @@
 <?php 
-include '../lib/Session.php';
-Session:: init();
-?>
-<?php 
  include '../lib/Database.php';
  include '../config/config.php';
  include '../helpers/Format.php';
 ?>
+<?php 
+include '../lib/Session.php';
+Session:: init();
+?>
+
 <!-- I am creating objects here so that i can access it from any page, becuase header is includeded in every page -->
 <?php
 $db = new Database();
