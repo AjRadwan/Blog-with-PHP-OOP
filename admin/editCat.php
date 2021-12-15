@@ -1,18 +1,17 @@
 <?php include 'inc/header.php';?>
 <?php include 'inc/sidebar.php';?>
-<div class="grid_10">
-
-<div class="box round first grid">
-    <h2>Add New Category</h2>
-    <div class="block copyblock"> 
-    <?php  
+<?php  
  if (!isset($_GET['catid'])  || $_GET['catid'] == NULL) {
-	header("Location: catlist.php");
+    echo "<script>window.location = 'catlist.php'; </script>";  
+	// header("Location: catlist.php");
  }else {
    $id = $_GET['catid'];
  }
 ?>
-
+<div class="grid_10">
+<div class="box round first grid">
+    <h2>Update Category</h2>
+    <div class="block copyblock"> 
 <?php
 //updated query 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){

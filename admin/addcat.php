@@ -15,7 +15,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $query = "INSERT INTO tbl_category (name) VALUES ('$name')";
         $catInsert = $db->insert($query);
         if ($catInsert) {
-            echo "<span class='success'>Category Insert Successfully!!</span>";
+            echo "<span class='success'>Category Insert Successfully!!</span>";    
+
  } else{
     echo "<span class='error'>Something went wrong Please try again !!</span>";
 

@@ -1,10 +1,22 @@
 ﻿<?php include 'inc/header.php';?>
 <?php include 'inc/sidebar.php';?>
 
- 
 <div class="grid_10">
 <div class="box round first grid">
 <h2>Category List</h2>
+<?php
+//delete query code 
+if(isset($_GET['delcat'])){
+ $delid = $_GET['delcat'];
+ $delquery = "DELETE FROM tbl_category WHERE id ='$delid'";
+ $delData = $db->delete($delquery);
+ if ($delData) {
+		echo "<span class='success'>Category Deleted Successfully!!</span>";
+} else{
+  echo "<span class='error'>Something went wrong Please try again !!</span>";
+}
+}
+?>
 <div class="block">        
 	<table class="data display datatable" id="example">
 	<thead>
@@ -29,7 +41,7 @@
 			<td><?php echo $data['name']?></td>
 			<td>
 			<a href="editCat.php?catid=<?php echo $data['id']?>">Edit</a> ||
-			<a onclick="return confirm('Do You Want To Delete this?')" href="delCat.php?delcat=<?php echo $data['id']?>">Delete</a></td>
+			<a onclick="return confirm('Do You Want To Delete this?')" href="?delcat=<?php echo $data['id']?>">Delete</a></td>
 		</tr>
 	<?php }  }// end while loop  ?>
 </tbody>
@@ -46,7 +58,6 @@ setupLeftMenu();
 
 $('.datatable').dataTable();
 setSidebarHeight();
-
 
 });
 </script>
