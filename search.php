@@ -13,6 +13,7 @@
 <div class="maincontent clear">
  
 <?php
+// search query
    $query = "SELECT * FROM tbl_post WHERE title LIKE '%$search%' OR Body LIKE '%$search%'";
    $post = $db->select($query);
     if($post){
