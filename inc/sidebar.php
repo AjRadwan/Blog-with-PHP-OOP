@@ -30,7 +30,7 @@ $query = "SELECT * FROM tbl_category";
 <h3><a href="post.php?id=<?php echo $result['id'] ?>"><?php echo $result['title']; ?></a></h3>
 			 
 	<a href="post.php?id=<?php echo $result['id'] ?>">
-	<img src="admin/upload/<?php echo $result['image']?>" alt="post image"/></a>
+	<img src="admin/<?php echo $result['image']?>" alt="post image"/></a>
 	<p> <?php echo $fm->textShroten($result['body'], 120 ) ?></p>
 	</div>
 		

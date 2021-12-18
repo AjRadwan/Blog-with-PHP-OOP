@@ -21,7 +21,7 @@ $query = "SELECT * FROM tbl_post where id='$id'";
 <h4><?php echo $fm->formaDate($result['date'] ) ?> By 
 <a href="#"><?php echo $result['author'] ?></a></h4>
 
-<img src="admin/upload/<?php echo $result['image']?>" alt="post image"> 
+<img src="admin/<?php echo $result['image']?>" alt="post image"> 
 	
 <p> <?php echo $fm->textShroten($result['body'] ) ?></p>
 							
@@ -35,7 +35,7 @@ $query = "SELECT * FROM tbl_post where id='$id'";
 ?>
 	<h2>Related articles</h2>
 	<a href="post.php?id=<?php echo $rresult['id'] ?>">
-	<img src="admin/upload/<?php echo $rresult['image']?>" alt="post image"/></a>
+	<img src="admin/<?php echo $rresult['image']?>" alt="post image"/></a>
 
 <?php }  } else {  echo "No Related articles"; } ?>
  
@@ -43,7 +43,6 @@ $query = "SELECT * FROM tbl_post where id='$id'";
 <?php  } } else { header("location:404.php"); } ?>
 
 </div>
-
 </div>
 
 

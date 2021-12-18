@@ -25,7 +25,7 @@
 	 <h4><?php echo $fm->formaDate($result['date'] ) ?> By 
 		<a href="#"><?php echo $result['author'] ?></a></h4>
 
-		<a href="#"><img src="admin/upload/<?php echo $result['image']?>" alt="post image"/></a>
+		<a href="#"><img src="admin/<?php echo $result['image']?>" alt="post image"/></a>
 
 		<p> <?php echo $fm->textShroten($result['body'] ) ?></p>
 
