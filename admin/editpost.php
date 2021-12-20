@@ -32,33 +32,54 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     //upload is a folder on my admin directory
     $uploaded_image = "upload/".$unique_image;
  //before upload any content checking if they are empty or not
-     if ($title == "" || $cat == "" || $body == "" || $author == "" || $tag == "" || $file_name == "") {
-      echo "<span class='error'>Filed Must Not be Empty!!</span>";      
-     } elseif ($file_size >5048567) {
+     if ($title == "" || $cat == "" || $body == "" || $author == "" || $tag == ""){
+      echo "<span class='error'>Filed Must Not be Empty!!</span>";     
+     } else {   
+    if(!empty($file_name)){         
+       if ($file_size >5048567) {
         echo "<span class='error'>Image Size should be less then 5MB! </span>";
 
        } elseif (in_array($file_ext, $permited) === false) {
      echo "<span class='error'>You can upload only:-" .implode(', ', $permited)."</span>";
-
-       } else{
+     } else{
      //uploaing image in upload folder 
-       move_uploaded_file($file_temp, $uploaded_image);
+        move_uploaded_file($file_temp, $uploaded_image); 
+   //update content into database 
+   $query = "UPDATE tbl_post SET
+              cat = '$cat',
+              title = '$title',
+              body = '$body',
+              image = '$uploaded_image',
+              author = '$author',
+              tag = '$tag'
+             WHERE id ='$postid' ";
 
- //insert content into database 
-       $query = "INSERT INTO tbl_post(cat, title, body , image , author, tag) 
-       VALUES('$cat', '$title', '$body', '$uploaded_image', '$author', '$tag')";
-
-
-       $inserted_rows = $db->insert($query);
-       if ($inserted_rows) {
-        echo "<span class='success'>Post Inserted Successfully.
-        </span>";
+       $update_row = $db->update($query);
+       if ($update_row) {
+        echo "<span class='success'>Post Updated Successfully.</span>";
        }else {
-        echo "<span class='error'>Post Not Inserted !</span>";
+        echo "<span class='error'>Post Not Updated !</span>";
        }
-    }
-}
+    }       
+   }else {
+            $query = "UPDATE tbl_post SET
+            cat = '$cat',
+            title = '$title',
+            body = '$body',
+            author = '$author',
+            tag = '$tag'
+          WHERE id ='$postid'";
 
+        $update_row = $db->update($query);
+        if ($update_row) {
+        echo "<span class='success'>Post Updated Successfully.
+        </span>";
+        }else {
+        echo "<span class='error'>Post Not Updated !</span>";
+        }
+    }   
+}
+}
 ?>
 
 <div class="block">     
@@ -101,7 +122,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     <?php  if($result['cat'] == $data['id']){ ?>
         selected="selected"
        <?php } ?> 
-       
+
     value="<?php echo $data['id']; ?>">
     <?php echo $data['name']; ?></option>
 
