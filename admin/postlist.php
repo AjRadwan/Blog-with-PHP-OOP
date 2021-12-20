@@ -41,14 +41,16 @@
 			<td><?php echo $result['name']; ?></td>
 
 		<td>
-		<img src="<?php echo $result['image']?>"  width="100%" alt="post image"/></a>
+		<img src="<?php echo $result['image']?>"  width="80px" alt="post image"/></a>
 		</td>	
 
 	      <td> <?php echo $result['author'] ?> </td>
 			<td><?php echo $result['tag']; ?></td>
 			<td><?php echo $fm->formaDate($result['date'] ) ?></td>
  
-			 	<td><a href="">Edit</a> || <a href="">Delete</a></td>
+			 	<td><a href="editpost.php?editpostid=<?php echo $result['id'] ?>">Edit</a> ||
+				 
+				 <td><a  onclick="return confirm('Are you sure you want to delete this post?')" href="deletepost.php?delpostid=<?php echo $result['id'] ?>">Delete</a> ||
 		</tr>
 		 <?php } }?>
 	
