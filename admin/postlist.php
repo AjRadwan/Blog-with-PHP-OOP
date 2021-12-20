@@ -38,10 +38,8 @@
 			<td><?php echo $i; ?></td>
 			<td><?php echo $result['title']; ?></td>
 			<td> <?php echo $fm->textShroten($result['body'],60 ) ?></td>
-			<td><?php echo $result['name']; ?></td>
-
-		<td>
-		<img src="<?php echo $result['image']?>"  width="80px" alt="post image"/></a>
+		 	<td>
+		<img src="<?php echo $result['image']?>"  width="80px"/></a>
 		</td>	
 
 	      <td> <?php echo $result['author'] ?> </td>
