@@ -4,23 +4,39 @@
 
 <div class="box round first grid">
 <h2>Update Site Title and Description</h2>
+<?php
+ $query = "SELECT * FROM title_slogan WHERE id=1";
+ $blog_title = $db->select($query);
+ if ($blog_title) {
+   while ($result = $blog_title->fetch_assoc()){
+ ?>
+
 <div class="block sloginblock">               
-<form>
+<form action="" method="post">
 <table class="form">					
     <tr>
         <td>
             <label>Website Title</label>
         </td>
         <td>
-            <input type="text" placeholder="Enter Website Title..."  name="title" class="medium" />
+            <input type="text" value='<?php echo $result['title'] ?>' name="title" class="medium" />
         </td>
     </tr>
-        <tr>
+    <tr>
         <td>
             <label>Website Slogan</label>
         </td>
         <td>
-            <input type="text" placeholder="Enter Website Slogan..." name="slogan" class="medium" />
+            <input type="text" value='<?php echo $result['slogan'] ?>' name="slogan" class="medium" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label></label>
+        </td>
+        <td>
+        <img src="<?php echo $result['logo']?>" alt="logo">
+          
         </td>
     </tr>
     <tr>
@@ -42,8 +58,9 @@
     </tr>
 </table>
 </form>
+        
 </div>
-</div>
+ <?php } } ?> <!-- end while loop -->
 </div>
 
 <?php include 'inc/footer.php';?>
