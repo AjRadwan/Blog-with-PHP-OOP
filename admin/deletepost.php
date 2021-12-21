@@ -25,6 +25,7 @@
       if ($getdata) {
           while ($delimg = $getdata->fetch_assoc()) {
                $dellink = $delimg['image'];
+               //delete image from directory folder with unlink
                unlink($dellink);
           }
       }
