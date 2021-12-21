@@ -21,7 +21,7 @@ $query = "SELECT * FROM tbl_category";
 <div class="samesidebar clear">
 	<h2>Latest articles</h2>
 <?php
-   $query = "SELECT * FROM tbl_post";
+   $query = "SELECT * FROM tbl_post limit 5";
    $post = $db->select($query);
     if($post){
     while($result = $post->fetch_assoc()){
