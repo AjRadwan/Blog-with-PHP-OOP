@@ -5,7 +5,7 @@
 ?>
 <?php 
 include '../lib/Session.php';
-Session:: init();
+Session:: checkLogin();
 ?>
 
 <!-- I am creating objects here so that i can access it from any page, becuase header is includeded in every page -->
