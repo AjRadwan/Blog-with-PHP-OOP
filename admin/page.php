@@ -74,7 +74,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         <tr>
             <td></td>
             <td>
-            <a onclick="return confirm('Are you sure you want to delete this    ')" href="deletepage.php?delpage=<?php echo $result['id']?> ">Delete</a>
+            <a onclick="return confirm('Are you sure you want to delete this')" href="deletepage.php?delpage=<?php echo $result['id']?> ">Delete</a>
             </td>
         </tr>
     </table>
