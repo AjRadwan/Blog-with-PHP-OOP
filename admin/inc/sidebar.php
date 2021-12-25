@@ -13,7 +13,7 @@
     
         <li><a class="menuitem">Pages</a>
         <ul class="submenu">
-        <li><a href="addpage.php">Add New Pages Us</a></li>
+        <li><a href="addpage.php">Add New Pages </a></li>
         <?php
             $query = "SELECT * FROM tbl_page";
             $pages = $db->select($query);

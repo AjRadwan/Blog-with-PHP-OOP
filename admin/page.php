@@ -4,13 +4,12 @@
 <?php  
  if (!isset($_GET['pageid'])  || $_GET['pageid'] == NULL) {
     echo "<script>window.location = 'index.php'; </script>";  
-	// header("Location: catlist.php");
  }else {
    $pageid = $_GET['pageid'];
  }
 ?>
 <div class="box round first grid">
-<h2>Add New Page</h2>
+<h2>Edit Page</h2>
 <?php
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $name = mysqli_real_escape_string($db->link, ($_POST['name']));
@@ -69,7 +68,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         <tr>
             <td></td>
             <td>
-                <input type="submit" name="submit" Value="Save" />
+                <input type="submit" name="submit" Value="Update" />
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+            <a onclick="return confirm('Are you sure you want to delete this    ')" href="deletepage.php?delpage=<?php echo $result['id']?> ">Delete</a>
             </td>
         </tr>
     </table>
