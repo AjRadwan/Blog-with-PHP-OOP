@@ -32,9 +32,6 @@
 				<li><a href="#">Category Five</a></li>						
 			</ul>
 	</div>
-	
-
-	
 </div>
 
 <?php include 'inc/sidebar.php'; ?>
