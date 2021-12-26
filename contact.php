@@ -24,7 +24,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
    }elseif (empty($body)){
 	   $error = "Message file must not be empty";
    }else{
-	   $msg = "From submited successfully";	
+	$query = "INSERT INTO tbl_contact(firstname, lastname, email, body) VALUES('$firstname', '$lastname', '$email', '$body')";
+     	$inserted_rows = $db->insert($query);
+	if ($inserted_rows) {
+	 $msg = "Message sent successfully";
+ 	}else {
+	$error = "Something went wrong! please try again";
+	}
    }
 
 }
