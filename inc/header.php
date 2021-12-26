@@ -110,8 +110,14 @@ if ($getSocial) {
 	</div>
 </div>
 <div class="navsection templete">
+	<?php //	highlight current page or menu item	
+	  $path = $_SERVER['SCRIPT_FILENAME'];
+	  $currentPage = basename($path,  '.php');
+	?>
 <ul>
-	<li><a  href="index.php">Home</a></li>
+	<li><a
+	 <?php  if ($currentPage == 'index') {	echo 'id="active"';}?>
+	 	href="index.php">Home</a></li>
 	<?php
 		$query = "SELECT * FROM tbl_page";
 		$pages = $db->select($query);
@@ -123,11 +129,12 @@ if ($getSocial) {
   if (isset($_GET['pageid']) && $_GET['pageid'] == $result['id']) {
 	 echo 'id="active"';
   }
-		
-		?>
+	?>
 		href="page.php?pageid=<?php echo $result['id']?>"><?php echo $result['name']?></a></li>
 
 		<?php }  } ?>
-	<li><a href="contact.php">Contact</a></li>
+	<li><a
+	<?php  if ($currentPage == 'contact') {	echo 'id="active"';}?>
+	href="contact.php">Contact</a></li>
 </ul>
 </div>
