@@ -12,17 +12,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
    $email = mysqli_real_escape_string($db->link, $email);
    $body = mysqli_real_escape_string($db->link, $body);
 
-   $error = "";
+// define variables and set to empty values
+ $fname = $lname = $emailErr = $bodyErr = "";
    if (empty($firstname)) {
-	   $error = "First name must not be empty";
-   }elseif (empty($lastname)){
-	   $error = "Last name must not be empty";
-   }elseif (empty($email)){
-	   $error = "Email must not be empty";
-   }elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)){
-	   $error = "Invalid email address";
-   }elseif (empty($body)){
-	   $error = "Message file must not be empty";
+	   $fname = "First name must not be empty";
+   }if (empty($lastname)){
+	   $lname = "Last name must not be empty";
+   }if (empty($email)){
+	   $emailErr = "Email must not be empty";
+   }if (!filter_var($email, FILTER_VALIDATE_EMAIL)){
+	   $emailErr = "Invalid email address";
+   }if (empty($body)){
+	   $bodyErr = "Message file must not be empty";
    }else{
 	$query = "INSERT INTO tbl_contact(firstname, lastname, email, body) VALUES('$firstname', '$lastname', '$email', '$body')";
      	$inserted_rows = $db->insert($query);
@@ -41,42 +42,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <div class="about">
 <h2>Contact us</h2>
 <form action="" method="post">
-<?php 
-           if (isset($error)) {
-           	echo "<span style='color:red'>$error</span>";
-           }if (isset($msg)) {
-           	echo "<span style='color:green'>$msg</span>";
-           }
-           ?>
 <table>
 <tr>
 	<td>Your First Name:</td>
-	
-	<td>
-   <input type="text" name="firstname" placeholder="Enter first name"/>
- 
-	</td>
+	 <td>
+ <input type="text" name="firstname" placeholder="Enter first name"/><br>
+ <?php if (isset($fname)){
+	echo "<span class='custerr'> $fname </span>";}?>
+  </td>
 </tr>
 <tr>
 	<td>Your Last Name:</td>
 	<td>
-	<input type="text" name="lastname" placeholder="Enter Last name"/>
- 
+	<input type="text" name="lastname" placeholder="Enter Last name"/><br>
+	<?php if (isset($lname)){
+	echo "<span class='custerr'> $lname </span>";}?>
 	</td>
 </tr>
 
 <tr>
 	<td>Your Email Address:</td>
 	<td>
-	<input type="email" name="email" placeholder="Enter Email Address"/>
- 
+	<input type="email" name="email" placeholder="Enter Email Address"/><br>
+	<?php if (isset($emailErr)){
+	echo "<span class='custerr'> $emailErr </span>";}?>
 	</td>
 </tr>
 <tr>
 	<td>Your Message:</td>
 	<td>
-	<textarea name="body"></textarea>
- 
+	<textarea name="body"></textarea><br>
+    <?php if (isset($bodyErr)){
+	echo "<span class='custerr'> $bodyErr </span>";}?>
 	</td>
 </tr>
 <tr>

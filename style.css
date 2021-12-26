@@ -164,6 +164,11 @@ margin:200px 0;
  height:200px;
 
 }
+.custerr{
+  color: red;
+  font-weight: bold;
+  float: left;
+}
 .overlay{
 	position:absolute;
 	width:100%;
