@@ -164,6 +164,11 @@ margin:200px 0;
  height:200px;
 
 }
+.success{
+  color: green;
+  font-weight: body;
+  text-align: center;
+}
 .custerr{
   color: red;
   font-weight: bold;

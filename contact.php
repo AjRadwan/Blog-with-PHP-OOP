@@ -1,7 +1,7 @@
 <?php include 'inc/header.php'; ?>
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-	//validation is helper function from helpers/Format.php';'
+	//validation is helper function from helpers/Format.php	';'
    $firstname = $fm->validation($_POST['firstname']);
    $lastname = $fm->validation($_POST['lastname']);
    $email = $fm->validation($_POST['email']);
@@ -33,7 +33,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$error = "Something went wrong! please try again";
 	}
    }
-
 }
 ?>
 
@@ -41,6 +40,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <div class="maincontent clear">
 <div class="about">
 <h2>Contact us</h2>
+<?php if (isset($msg)){
+	echo "<span class='success'> $msg </span>";}?>
 <form action="" method="post">
 <table>
 <tr>
