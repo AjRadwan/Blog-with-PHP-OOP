@@ -16,7 +16,7 @@ if ($updateMsg) {
 	echo "<span class='success'>Message Sent in the seen box!!</span>";
 } else{
 echo "<span class='error'>Something went wrong Please try again !!</span>";
-}
+ }
 }
 ?>
 <div class="block">        
