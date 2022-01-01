@@ -16,7 +16,12 @@ if (!isset($_GET['msgid'])  || $_GET['msgid'] == NULL) {
       $toEmail = $fm->validation($_POST['toEmail']);
      $fromEmail = $fm->validation($_POST['fromEmail']);
      $subject = $fm->validation($_POST['subject']);
-     $message = $fm->validation($_POST['message']);
+      $message = $fm->validation($_POST['message']);
+     
+// In case any of our lines are larger than 70 characters, we should use wordwrap()
+     $message = wordwrap($message, 70, "\r\n");
+     $message = str_replace("\n.", "\n..", $message);
+
      $sendEmail = mail($toEmail, $fromEmail, $subject, $message);
      if ($sendEmail) {
         echo "<span class='success'>Email Send Successfully.</span>";
