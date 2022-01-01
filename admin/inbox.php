@@ -61,6 +61,19 @@ echo "<span class='error'>Something went wrong Please try again !!</span>";
 
 <div class="box round first grid">
 <h2>Seen Message</h2>
+<?php
+//delete query code 
+if(isset($_GET['delid'])){
+ $delid = $_GET['delid'];
+ $delquery = "DELETE FROM tbl_contact WHERE id ='$delid'";
+ $delData = $db->delete($delquery);
+ if ($delData) {
+		echo "<span class='success'>Message Deleted Successfully!!</span>";
+} else{
+  echo "<span class='error'>Something went wrong Please try again !!</span>";
+}
+}
+?>
 <div class="block">        
 <table class="data display datatable" id="example">
 <thead>

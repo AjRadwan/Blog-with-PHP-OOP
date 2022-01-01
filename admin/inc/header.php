@@ -10,17 +10,17 @@
 ?>
 
 <?php 
-include '../lib/Session.php';
-Session:: checkSession();
+    include '../lib/Session.php';
+    Session:: checkSession();
 ?>
 <?php 
- include '../lib/Database.php';
- include '../config/config.php';
- include '../helpers/Format.php';
+    include '../lib/Database.php';
+    include '../config/config.php';
+    include '../helpers/Format.php';
 ?>
 <?php
-$db = new Database();
-$fm = new Format();
+    $db = new Database();
+    $fm = new Format();
 ?>
 
 <!DOCTYPE html>
@@ -48,10 +48,10 @@ $fm = new Format();
 <script type="text/javascript" src="js/table/table.js"></script>
 <script src="js/setup.js" type="text/javascript"></script>
 <script type="text/javascript">
-$(document).ready(function () {
-setupLeftMenu();
-setSidebarHeight();
-});
+    $(document).ready(function () {
+    setupLeftMenu();
+    setSidebarHeight();
+    });
 </script>
 
 </head>
@@ -96,7 +96,18 @@ setSidebarHeight();
     <li class="ic-dashboard"><a href="index.php"><span>Dashboard</span></a> </li>
     <li class="ic-form-style"><a href=""><span>User Profile</span></a></li>
     <li class="ic-typography"><a href="changepassword.php"><span>Change Password</span></a></li>
-    <li class="ic-grid-tables"><a href="inbox.php"><span>Inbox</span></a></li>
+    <li class="ic-grid-tables"><a href="inbox.php"><span>Inbox
+        <?php
+         $query = "SELECT * FROM tbl_contact WHERE status='0' ORDER BY id DESC";
+         $msg = $db->select($query);
+         if ($msg) {
+             $count = mysqli_num_rows($msg);
+             echo "(".$count.")";
+         }else{
+             echo "0";
+         }
+        ?>
+    </span></a></li>
     <li class="ic-charts"><a href="postlist.php"><span>Visit Website</span></a></li>
 </ul>
 </div>
