@@ -69,7 +69,6 @@
 			<a href="">Delete</a> 
 	 	</td>
 	</tr>
-	
 </tbody>
 </table>
 </div>
