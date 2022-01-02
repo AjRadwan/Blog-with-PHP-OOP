@@ -27,8 +27,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         echo "<span class='error'>User Not Updated !</span>";
         }
     }   
-
-
 ?>
 
 <div class="block">     

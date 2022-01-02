@@ -55,7 +55,7 @@ if(isset($_GET['delUser'])){
             ?></td>
 
 			<td>
-			<a href="editUser.php?userId=<?php echo $data['id']?>">Edit</a> ||
+			<a href="viewUser.php?userId=<?php echo $data['id']?>">View</a> ||
 			<a onclick="return confirm('Do You Want To Delete this User?')" href="?delUser=<?php echo $data['id']?>">Delete</a></td>
 		</tr>
 	<?php }  }// end while loop  ?>
