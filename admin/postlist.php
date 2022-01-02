@@ -34,22 +34,24 @@
     $i ++;
 ?>
 
-		<tr class="odd gradeX">
-			<td><?php echo $i; ?></td>
-			<td><?php echo $result['title']; ?></td>
-			<td> <?php echo $fm->textShroten($result['body'],60 ) ?></td>
-		 	<td>
-		<img src="<?php echo $result['image']?>"  width="80px"/></a>
-		</td>	
+<tr class="odd gradeX">
+	<td><?php echo $i; ?></td>
+	<td><?php echo $result['title']; ?></td>
+	<td> <?php echo $fm->textShroten($result['body'],60 ) ?></td>
+	<td>
+<img src="<?php echo $result['image']?>"  width="80px"/></a>
+</td>	
 
-	      <td> <?php echo $result['author'] ?> </td>
-			<td><?php echo $result['tag']; ?></td>
-			<td><?php echo $fm->formaDate($result['date'] ) ?></td>
- 
-			 	<td><a href="editpost.php?editpostid=<?php echo $result['id'] ?>">Edit</a> ||
-				 
-				 <td><a  onclick="return confirm('Are you sure you want to delete this post?')" href="deletepost.php?delpostid=<?php echo $result['id'] ?>">Delete</a> ||
-		</tr>
+	<td> <?php echo $result['author'] ?> </td>
+	<td><?php echo $result['tag']; ?></td>
+	<td><?php echo $fm->formaDate($result['date'] ) ?></td>
+<?php
+if (Session::get('userId') == $result['userid'] || Session::get('userRole') == '0') {?>
+  	<td><a href="editpost.php?editpostid=<?php echo $result['id'] ?>">Edit</a> ||
+	 	<td><a  onclick="return confirm('Are you sure you want to delete this post?')" href="deletepost.php?delpostid=<?php echo $result['id'] ?>">Delete</a> ||
+	 <?php  }?>
+
+</tr>
 		 <?php } }?>
 	
 	</tbody>

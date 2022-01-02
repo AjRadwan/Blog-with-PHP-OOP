@@ -11,6 +11,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $body = mysqli_real_escape_string($db->link, ($_POST['body']));
     $author = mysqli_real_escape_string($db->link, ($_POST['author']));
     $tag = mysqli_real_escape_string($db->link, ($_POST['tag']));
+    $userid = mysqli_real_escape_string($db->link, ($_POST['userid']));
     
 
 //Image validation
@@ -38,11 +39,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
        move_uploaded_file($file_temp, $uploaded_image);
 
  //insert content into database 
-       $query = "INSERT INTO tbl_post(cat, title, body , image , author, tag) 
-       VALUES('$cat', '$title', '$body', '$uploaded_image', '$author', '$tag')";
+       $query = "INSERT INTO tbl_post(cat, title, body , image , author, tag, userid) 
+       VALUES('$cat', '$title', '$body', '$uploaded_image', '$author', '$tag', '$userid')";
 
-
-       $inserted_rows = $db->insert($query);
+    $inserted_rows = $db->insert($query);
        if ($inserted_rows) {
         echo "<span class='success'>Post Inserted Successfully.
         </span>";
@@ -119,6 +119,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             </td>
             <td>
                 <input type="text" readonly name="author" value="<?php echo Session::get('username')?>" class="medium" />
+                <input type="hidden"  name="userid" value="<?php echo Session::get('userId')?>" class="medium" />
             </td>
         </tr>
         <tr>

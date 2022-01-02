@@ -19,6 +19,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $body = mysqli_real_escape_string($db->link, ($_POST['body']));
     $author = mysqli_real_escape_string($db->link, ($_POST['author']));
     $tag = mysqli_real_escape_string($db->link, ($_POST['tag']));
+    $userid = mysqli_real_escape_string($db->link, ($_POST['userid']));
     
 //Image validation
     $permited  = array('jpg', 'jpeg', 'png', 'gif');
@@ -51,7 +52,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
               body = '$body',
               image = '$uploaded_image',
               author = '$author',
-              tag = '$tag'
+              tag = '$tag',
+              userid = '$userid'
              WHERE id ='$postid' ";
 
        $update_row = $db->update($query);
@@ -67,8 +69,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             title = '$title',
             body = '$body',
             author = '$author',
-            tag = '$tag'
-          WHERE id ='$postid'";
+            tag = '$tag',
+            userid = '$userid'
+            WHERE id ='$postid'";
 
         $update_row = $db->update($query);
         if ($update_row) {
@@ -162,6 +165,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             </td>
             <td> 
                 <input type="text" name="author" value="<?php echo $result['author']?>" class="medium" />
+                <input type="hidden"  name="userid" value="<?php echo Session::get('userId')?>" class="medium" />
             </td>
         </tr>
         <tr>
