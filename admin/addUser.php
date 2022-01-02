@@ -1,7 +1,6 @@
 <?php include 'inc/header.php';?>
 <?php include 'inc/sidebar.php';?>
 <div class="grid_10">
-
 <div class="box round first grid">
     <h2>Add User</h2>
     <div class="block copyblock"> 
@@ -49,7 +48,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 <td>
                     <select name="role" id="select">
                         <option>Select User Role</option>
-                        <option value="0">Admin</option>
+                        <!-- <option value=" ">Admin</option> -->
                         <option value="1">Author</option>
                         <option value="2">Editor</option>
                     </select>

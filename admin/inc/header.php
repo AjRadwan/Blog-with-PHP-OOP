@@ -109,6 +109,7 @@
         ?>
     </span></a></li>
     <li class="ic-charts"><a href="addUser.php"><span>Add User</span></a></li>
+    <li class="ic-charts"><a href="userlist.php"><span>User List</span></a></li>
     <li class="ic-charts"><a href="postlist.php"><span>Visit Website</span></a></li>
 </ul>
 </div>
