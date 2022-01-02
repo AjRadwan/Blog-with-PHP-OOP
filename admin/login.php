@@ -37,17 +37,12 @@ $fm = new Format();
 	$result = $db->select($query);
 
 	if($result != false){
-		$value = mysqli_fetch_array($result);
-		$row = mysqli_num_rows($result);
-		if ($row > 0) {
-			Session::set("login", true);
+		  $value = $result->fetch_assoc();
+		  	Session::set("login", true);
 			Session::set("username", $value['username']);
 			Session::set("userId", $value['id']);
 			Session::set("userRole", $value['role']);
 			header("Location:index.php");
-		}else{
-		echo "<span style='color:red; font-size:17px; font-weight:bold'>NO Result Found</span>";
-	}
 }else{
 echo "<span style='color:red; font-size:17px; font-weight:bold'>Username or Password Dosen't match</span>";
  }
