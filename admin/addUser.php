@@ -23,6 +23,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     if (empty($username) || empty($password) || empty($role) || empty($email)) {
       echo "<span class='error'>Filed Must Not be Empty!!</span>";
      }else{
+         //checking existence of email
          $mailquery = "SELECT * FROM tbl_user WHERE email = '$email' lIMIT 1";
          $mailCheck = $db->select($mailquery);
          if($mailCheck != false){

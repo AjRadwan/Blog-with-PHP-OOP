@@ -62,7 +62,7 @@ echo "<span style='color:red; font-size:17px; font-weight:bold'>Username or Pass
 			</div>
 		</form><!-- form -->
 		<div class="button">
-		 <a href="">Your website home page link</a>
+		 <a href="forgotPass.php">Forgot Password</a>
 		</div><!-- button -->
 	</section><!-- content -->
 </div><!-- container -->
